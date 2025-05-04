@@ -28,16 +28,27 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see http://www.gnu.org/licenses.
 */
 
-require 'psource/psource-plugin-update/psource-plugin-updater.php';
-$MyUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'https://n3rds.work//wp-update-server/?action=get_metadata&slug=ps-dsgvo', 
-	__FILE__, 
-	'ps-dsgvo' 
-);
 
 
 namespace PSDSGVO;
 
+/**
+ * @@@@@@@@@@@@@@@@@ PS UPDATER 1.3 @@@@@@@@@@@
+ **/
+require 'psource/psource-plugin-update/plugin-update-checker.php';
+ use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+ 
+ $myUpdateChecker = PucFactory::buildUpdateChecker(
+	 'https://github.com/cp-psource/ps-dsgvoy',
+	 __FILE__,
+	 'ps-dsgvo'
+ );
+ 
+ //Set the branch that contains the stable release.
+ $myUpdateChecker->setBranch('main');
+/**
+ * @@@@@@@@@@@@@@@@@ ENDE PS UPDATER 1.3 @@@@@@@@@@@
+ **/
 
 
 use WP_Query;
