@@ -2,11 +2,11 @@
 
 /*
  Plugin Name: PSOURCE DSGVO 
- Plugin URI:  https://n3rds.work/
+ Plugin URI:  https://cp-psource.github.io/ps-dsgvo/
  Description: Dieses Plugin unterstützt Website- und Webshop-Besitzer bei der Einhaltung der europäischen Datenschutzbestimmungen, die als DSGVO bekannt sind. 
  Version:     1.5.4
  Author:      DerN3rd
- Author URI:  https://n3rds.work
+ Author URI:  https://github.com/cp-psource
  License:     GPL2
  License URI: https://www.gnu.org/licenses/gpl-2.0.html
  Text Domain: psource-dsgvo
@@ -45,7 +45,7 @@ require 'psource/psource-plugin-update/plugin-update-checker.php';
  );
  
  //Set the branch that contains the stable release.
- $myUpdateChecker->setBranch('main');
+ $myUpdateChecker->setBranch('master');
 /**
  * @@@@@@@@@@@@@@@@@ ENDE PS UPDATER 1.3 @@@@@@@@@@@
  **/
@@ -167,7 +167,7 @@ class PSDSGVO {
         add_filter('psdsgvo_the_content', 'convert_smilies', 20);
         add_filter('psdsgvo_the_content', 'wpautop');
         add_filter('psdsgvo_the_content', 'shortcode_unautop');
-        add_filter('psdsgvo_the_content', 'wp_make_content_images_responsive');
+        add_filter('psdsgvo_the_content', 'wp_filter_content_tags');
     }
 
     public static function checkSession() {
