@@ -44,7 +44,7 @@ class WC {
      * @param string $emailAddress
      * @param \WP_Error $errors
      */
-    public function checkPostRegisterForm($username = '', $emailAddress = '', \WP_Error $errors) {
+    public function checkPostRegisterForm(\WP_Error $errors, $username = '', $emailAddress = '') {
         if (!isset($_POST['psdsgvo'])) {
             $errors->add('psdsgvo_error', Integration::getErrorMessage(self::ID));
         }
