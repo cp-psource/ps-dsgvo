@@ -115,7 +115,9 @@ class PSDSGVO {
         }
         $action = (isset($_REQUEST['psdsgvo-action'])) ? esc_html($_REQUEST['psdsgvo-action']) : false;
         Helper::doAction($action);
-        load_plugin_textdomain(PS_DSGVO_C_SLUG, false, basename(dirname(__FILE__)) . '/languages/');
+        add_action('plugins_loaded', function () {
+            load_plugin_textdomain(PS_DSGVO_C_SLUG, false, basename(dirname(__FILE__)) . '/languages/');
+        });
         add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'addActionLinksToPluginPage'));
         if (is_admin()) {
             add_action('admin_init', array(Page::getInstance(), 'registerSettings'));
